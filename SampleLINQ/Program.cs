@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using log4net;
 
 namespace SampleLINQ
 {
@@ -14,17 +15,18 @@ namespace SampleLINQ
 			//LessonTwo();
 			//Console.ReadLine();
 
+
 			var assetFlow = new AssetFlowsByYearMonth();
 			bool original;
-			assetFlow.HaveSecurityAssetFlowsInNonInitialMonth(1, out original);
+			assetFlow.HaveSecurityAssetFlowsInNonInitialMonth(201706, out original);
 			Console.WriteLine($"This is the value from the original method: {original}");
 
 			bool linqAny;
-			assetFlow.HaveSecurityLinqAny(1, out linqAny);
+			assetFlow.HaveSecurityLinqAny(201706, out linqAny);
 			Console.WriteLine($"This is the value from the linq any method: {linqAny}");
 
 			bool linqSelect;
-			assetFlow.HaveSecurityLinqSelectMany(1, out linqSelect);
+			assetFlow.HaveSecurityLinqSelectMany(201706, out linqSelect);
 			Console.WriteLine($"This is the value from the line select many method: {linqSelect}");
 
 			Console.ReadLine();
